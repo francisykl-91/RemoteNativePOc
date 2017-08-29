@@ -1,0 +1,6 @@
+framework module Pods_React_Native_Poc {
+  umbrella header "Pods-React-Native-Poc-umbrella.h"
+
+  export *
+  module * { export * }
+}

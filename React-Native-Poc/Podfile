@@ -1,0 +1,32 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+react_native_path = '../ReactPoc/node_modules/react-native'
+
+target 'React-Native-Poc' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Explicitly include Yoga if you are using RN >= 0.42.0
+    pod 'Yoga', :path => react_native_path + '/ReactCommon/yoga'
+    
+    # Third party deps
+    pod 'DoubleConversion', :podspec => react_native_path + '/third-party-podspecs/DoubleConversion.podspec'
+    pod 'GLog', :podspec => react_native_path + '/third-party-podspecs/GLog.podspec'
+    pod 'Folly', :podspec => react_native_path + '/third-party-podspecs/Folly.podspec'
+    
+    # Your 'node_modules' directory is probably in the root of your project,
+    # but if not, adjust the `:path` accordingly
+    pod 'React', :path => react_native_path, :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # needed for debugging
+    # Add any other subspecs you want to use in your project
+    ]
+    
+    pod 'CodePush', :path => '../ReactPoc/node_modules/react-native-code-push'
+    
+end
